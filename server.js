@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const postRoute = require("./routes/post.route");
+const fileUpload = require("express-fileupload");
 const app = express();
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -13,6 +14,11 @@ mongoose
   });
 
 // app.use(bodyParser.json());
+app.use(
+  fileUpload({
+    useTempFiles: true,
+  })
+);
 
 // Middleware
 app.use(express.json());
