@@ -11,10 +11,10 @@ const swaggerDefinition = {
     name: "Fodjo Frank",
     email: "fodjolontchifrank@gmail.com",
   },
-  host: `localhost:${PORT}`,
+  host: `crud-api-backend.herokuapp.com/`,
   // host: 'bridgelab-api.herokuapp.com',
   basePath: "/",
-  schemes: ["http"],
+  schemes: ["https"],
   consumes: [
     "application/json",
     "multipart/form-data",
