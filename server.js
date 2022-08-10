@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const postRoute = require("./routes/post.route");
+const authRoute = require("./routes/auth");
 const fileUpload = require("express-fileupload");
 const app = express();
 
@@ -22,7 +23,12 @@ app.use(
 
 // Middleware
 app.use(express.json());
+
+//Route Middleware
 app.use("/api/post", postRoute);
+
+//Auth Middleware
+app.use("/api/user", authRoute);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () =>
