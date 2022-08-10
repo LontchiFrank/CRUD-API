@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const postRoute = require("./routes/post.route");
 const authRoute = require("./routes/auth");
 const fileUpload = require("express-fileupload");
+const swaggerUi = require("swagger-ui-express");
+// const { swaggerDocs } = require("./swagger");
+const doc = require("./swagger");
 const app = express();
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -30,7 +33,9 @@ app.use("/api/post", postRoute);
 //Auth Middleware
 app.use("/api/user", authRoute);
 
+app.use("/", swaggerUi.serve, swaggerUi.setup(doc));
+
 const PORT = process.env.PORT;
-app.listen(PORT, () =>
-  console.log(`Server Running on port: http://localhost:${PORT} `)
-);
+app.listen(PORT, () => {
+  console.log(`Server Running on port: http://localhost:${PORT} `);
+});
