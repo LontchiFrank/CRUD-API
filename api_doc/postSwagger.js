@@ -12,7 +12,7 @@
  *      - name: image
  *        type: file
  *        in: formData
- *        description: Upload category image
+ *        description: Upload image
  *      - name: name
  *        type: string
  *        in: formData
